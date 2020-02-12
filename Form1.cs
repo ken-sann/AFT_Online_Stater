@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,15 +20,30 @@ namespace AFT_Online_Stater
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var process = new Process
+            {
+                StartInfo =
+                {
+                    FileName = "cmd.exe",
+                    Arguments = "ipconfig/flushdns",
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    CreateNoWindow = true,
+                }
+            };
+            process.Start();
+            process.WaitForExit();
+            process.Close();
             //创建启动对象 
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            //设置运行文件 
-            startInfo.FileName = "inject.exe";
-            //设置启动动作,确保以管理员身份运行 
-            startInfo.Verb = "runas";
-            startInfo.Arguments = $"-d -k divahook.dll diva.exe";
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                //设置运行文件 
+                FileName = "inject.exe",
+                //设置启动动作,确保以管理员身份运行 
+                Verb = "runas",
+                Arguments = $"-d -k divahook.dll diva.exe"
+            };
             //如果不是管理员，则启动UAC 
-            System.Diagnostics.Process.Start(startInfo);
+            Process.Start(startInfo);
             Close();
         }
     }
