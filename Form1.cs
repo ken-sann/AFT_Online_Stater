@@ -17,7 +17,6 @@ namespace AFT_Online_Stater
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             var process = new Process
@@ -43,7 +42,7 @@ namespace AFT_Online_Stater
                 Arguments = $"-d -k divahook.dll diva.exe"
             };
             //如果不是管理员，则启动UAC 
-            Process.Start(startInfo);
+            Process.Start(startInfo); 
             Close();
         }
     }
