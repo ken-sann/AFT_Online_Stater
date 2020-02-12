@@ -28,35 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.logBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // logBox
-            // 
-            this.logBox.Location = new System.Drawing.Point(4, 13);
-            this.logBox.Multiline = true;
-            this.logBox.Name = "logBox";
-            this.logBox.Size = new System.Drawing.Size(382, 183);
-            this.logBox.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 208);
-            this.Controls.Add(this.logBox);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        public System.Windows.Forms.TextBox logBox;
     }
 }
 
