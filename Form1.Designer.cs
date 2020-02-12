@@ -38,6 +38,7 @@
             this.logBox.Name = "logBox";
             this.logBox.Size = new System.Drawing.Size(382, 183);
             this.logBox.TabIndex = 0;
+            this.logBox.TextChanged += new System.EventHandler(this.logBox_TextChanged);
             // 
             // Form1
             // 

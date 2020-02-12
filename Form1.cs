@@ -19,19 +19,19 @@ namespace AFT_Online_Stater
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            var process = new Process
-            {
-                StartInfo =
-                {
-                    FileName = "cmd.exe",
-                    Arguments = "ipconfig/flushdns",
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    CreateNoWindow = true,
-                }
-            };
-            process.Start();
-            process.WaitForExit();
-            process.Close();
+            //var process = new Process
+            //{
+            //   StartInfo =
+            //    {
+            //       FileName = "cmd.exe",
+            //      Arguments = "ipconfig/flushdns & exit",
+            //       WindowStyle = ProcessWindowStyle.Hidden,
+            //      CreateNoWindow = true,
+            //  }
+            //};
+            // process.Start();
+            // process.WaitForExit();
+            // process.Close();
             //创建启动对象 
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
@@ -41,9 +41,28 @@ namespace AFT_Online_Stater
                 Verb = "runas",
                 Arguments = $"-d -k divahook.dll diva.exe"
             };
-            //如果不是管理员，则启动UAC 
-            Process.Start(startInfo); 
+            //如果不是管理员，则启动UAC
+
+            Process[] pro = Process.GetProcesses();//获取已开启的所有进程
+
+            //遍历所有查找到的进程
+
+            for (int i = 0; i < pro.Length; i++)
+            {
+
+                //判断此进程是否是要查找的进程
+                if (pro[i].ProcessName.ToString().ToLower() == "diva")
+                {
+                    pro[i].Kill();//结束进程
+                }
+            }
+            Process.Start(startInfo);//启动diva.exe 
             Close();
+        }
+
+        private void logBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
