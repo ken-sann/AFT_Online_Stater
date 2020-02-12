@@ -18,7 +18,7 @@ namespace AFT_Online_Stater
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {/*
             var process = new Process
             {
                 StartInfo =
@@ -31,7 +31,7 @@ namespace AFT_Online_Stater
             };
             process.Start();
             process.WaitForExit();
-            process.Close();
+            process.Close();*/
             //创建启动对象 
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
