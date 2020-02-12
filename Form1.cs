@@ -19,7 +19,7 @@ namespace AFT_Online_Stater
                 FileName = "inject.exe",
                 //设置启动动作,确保以管理员身份运行 
                 Verb = "runas",
-                Arguments = $"-d -k divahook.dll diva.exe"
+                Arguments = "-d -k divahook.dll diva.exe"
             };
             //如果不是管理员，则启动UAC
 
@@ -31,7 +31,7 @@ namespace AFT_Online_Stater
             {
 
                 //判断此进程是否是要查找的进程
-                if (pro[i].ProcessName.ToString().ToLower() == "diva")
+                if (pro[i].ProcessName.ToLower() == "diva")
                 {
                     pro[i].Kill();//结束进程
                 }
