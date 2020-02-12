@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AFT_Online_Stater
@@ -19,19 +12,6 @@ namespace AFT_Online_Stater
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //var process = new Process
-            //{
-            //   StartInfo =
-            //    {
-            //       FileName = "cmd.exe",
-            //      Arguments = "ipconfig/flushdns & exit",
-            //       WindowStyle = ProcessWindowStyle.Hidden,
-            //      CreateNoWindow = true,
-            //  }
-            //};
-            // process.Start();
-            // process.WaitForExit();
-            // process.Close();
             //创建启动对象 
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
@@ -58,11 +38,6 @@ namespace AFT_Online_Stater
             }
             Process.Start(startInfo);//启动diva.exe 
             Close();
-        }
-
-        private void logBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
