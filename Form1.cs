@@ -26,16 +26,14 @@ namespace AFT_Online_Stater
             Process[] pro = Process.GetProcesses();//获取已开启的所有进程
 
             //遍历所有查找到的进程
-
-            for (int i = 0; i < pro.Length; i++)
+            foreach (var divaProcess in pro)
             {
-
-                //判断此进程是否是要查找的进程
-                if (pro[i].ProcessName.ToLower() == "diva")
+                if (divaProcess.ProcessName.ToLower() == "diva")
                 {
-                    pro[i].Kill();//结束进程
+                    divaProcess.Kill();//结束进程
                 }
             }
+
             Process.Start(startInfo);//启动diva.exe 
             Close();
         }
